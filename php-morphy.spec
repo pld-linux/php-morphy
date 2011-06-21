@@ -5,7 +5,7 @@ Summary:	phpMorphy is morphological analyzer library
 Summary(ru.UTF-8):	Библиотека морфологического анализа
 Name:		php-%{pkgname}
 Version:	0.3.7
-Release:	0.1
+Release:	0.2
 License:	LGPL v2.1
 Group:		Development/Languages/PHP
 Source0:	http://downloads.sourceforge.net/phpmorphy/phpmorphy-%{version}.zip
@@ -13,13 +13,12 @@ Source0:	http://downloads.sourceforge.net/phpmorphy/phpmorphy-%{version}.zip
 URL:		http://phpmorphy.sourceforge.net/
 BuildRequires:	rpmbuild(macros) >= 1.553
 Requires:	php-common >= 4:%{php_min_version}
+Requires:	php-pcre
+Requires:	php-spl
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_appdir			%{php_data_dir}/%{pkgname}
-
-# _phpdocdir / php_docdir / phpdoc_dir ?
-%define		_phpdocdir		%{_docdir}/phpdoc
 
 # bad depsolver
 %define		_noautopear	pear
@@ -46,7 +45,7 @@ phpMorphy позволяет решать следующие задачи:
 
 %prep
 %setup -q -n phpmorphy-%{version}
-%undos AUTHORS CHANGES INSTALL README 
+%undos AUTHORS CHANGES INSTALL README
 %undos -f php
 
 %install
@@ -62,6 +61,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS CHANGES INSTALL README 
+%doc AUTHORS CHANGES INSTALL README
 %{_appdir}
 %{_examplesdir}/%{name}-%{version}
