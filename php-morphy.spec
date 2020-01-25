@@ -1,6 +1,5 @@
 %define		pkgname	morphy
 %define		php_min_version 5.0.0
-%include	/usr/lib/rpm/macros.php
 Summary:	phpMorphy is morphological analyzer library
 Summary(ru.UTF-8):	Библиотека морфологического анализа
 Name:		php-%{pkgname}
